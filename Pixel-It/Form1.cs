@@ -285,35 +285,53 @@ namespace Pixel_It
                     return;
 
                 string filePath = sfd.FileName;
+                string dir = Path.GetDirectoryName(filePath);
+
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
 
                 if (File.Exists(filePath) &&
                     (File.GetAttributes(filePath) & FileAttributes.ReadOnly) != 0)
+                    throw new IOException("File exists and is read-only!");
+
+                Bitmap clone;
+                lock (bitmap)
                 {
-                    throw new Exception("File exists and is read-only!");
+                    clone = new Bitmap(bitmap);
                 }
 
                 ImageFormat format = FormatFromExtension(filePath);
                 if (format == null)
-                    throw new Exception("Unsupported image format.");
+                    throw new NotSupportedException("Unsupported image format.");
 
                 if (format.Equals(ImageFormat.Jpeg))
                 {
-                    var jpegEncoder = ImageCodecInfo.GetImageEncoders()
-                        .FirstOrDefault(c => c.MimeType == "image/jpeg");
+                    var jpgEncoder = ImageCodecInfo.GetImageEncoders()
+                        .First(c => c.MimeType == "image/jpeg");
                     var ep = new EncoderParameters(1);
                     ep.Param[0] = new EncoderParameter(
-                        System.Drawing.Imaging.Encoder.Quality,
-                        85L
-                    );
-                    bitmap.Save(filePath, jpegEncoder, ep);
+                        System.Drawing.Imaging.Encoder.Quality, 85L);
+
+                    clone.Save(filePath, jpgEncoder, ep);
                 }
                 else
                 {
-                    bitmap.Save(filePath, format);
+                    clone.Save(filePath, format);
+                }
+
+                clone.Dispose();
+            }
+        }
+
+        private void oilPaintingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OilPainting oilForm = new OilPainting(bitmap))
+            {
+                if (oilForm.ShowDialog() == DialogResult.OK)
+                {
+                    filterPreview1.Image = bitmap = oilForm.bitmap;
                 }
             }
-
-
         }
 
         private void gammaToolStripMenuItem_Click(object sender, EventArgs e)

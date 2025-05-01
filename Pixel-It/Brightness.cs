@@ -91,5 +91,20 @@ namespace Pixel_It
 
             filterBrightnessBox.Image = bitmap = ApplyBrightnessFilter(orignal, value);
         }
+
+        private void previewLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changeBrightnessLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filterBrightnessBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

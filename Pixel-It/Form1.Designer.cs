@@ -62,6 +62,8 @@
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.filterPreview1 = new Pixel_It.FilterPreview();
+            this.effectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oilPaintingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,7 +77,8 @@
             this.fileToolStripMenuItem,
             this.toolToolStripMenuItem,
             this.histogramToolStripMenuItem,
-            this.adjustmentsToolStripMenuItem});
+            this.adjustmentsToolStripMenuItem,
+            this.effectsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(840, 28);
@@ -339,6 +342,21 @@
             this.filterPreview1.TabIndex = 4;
             this.filterPreview1.Text = "filterPreview1";
             // 
+            // effectsToolStripMenuItem
+            // 
+            this.effectsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oilPaintingToolStripMenuItem});
+            this.effectsToolStripMenuItem.Name = "effectsToolStripMenuItem";
+            this.effectsToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.effectsToolStripMenuItem.Text = "&Effects";
+            // 
+            // oilPaintingToolStripMenuItem
+            // 
+            this.oilPaintingToolStripMenuItem.Name = "oilPaintingToolStripMenuItem";
+            this.oilPaintingToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.oilPaintingToolStripMenuItem.Text = "&Oil Painting";
+            this.oilPaintingToolStripMenuItem.Click += new System.EventHandler(this.oilPaintingToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -399,6 +417,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem effectsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oilPaintingToolStripMenuItem;
     }
 }
 
