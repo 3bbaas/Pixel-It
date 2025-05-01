@@ -275,6 +275,47 @@ namespace Pixel_It
             histogram.Show();
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            using (var sfd = new SaveFileDialog())
+            {
+                sfd.Title = "Save Image As...";
+                sfd.Filter = "JPEG Image|*.jpg|PNG Image|*.png|Bitmap Image|*.bmp|GIF Image|*.gif";
+                if (sfd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                string filePath = sfd.FileName;
+
+                if (File.Exists(filePath) &&
+                    (File.GetAttributes(filePath) & FileAttributes.ReadOnly) != 0)
+                {
+                    throw new Exception("File exists and is read-only!");
+                }
+
+                ImageFormat format = FormatFromExtension(filePath);
+                if (format == null)
+                    throw new Exception("Unsupported image format.");
+
+                if (format.Equals(ImageFormat.Jpeg))
+                {
+                    var jpegEncoder = ImageCodecInfo.GetImageEncoders()
+                        .FirstOrDefault(c => c.MimeType == "image/jpeg");
+                    var ep = new EncoderParameters(1);
+                    ep.Param[0] = new EncoderParameter(
+                        System.Drawing.Imaging.Encoder.Quality,
+                        85L
+                    );
+                    bitmap.Save(filePath, jpegEncoder, ep);
+                }
+                else
+                {
+                    bitmap.Save(filePath, format);
+                }
+            }
+
+
+        }
+
         private void gammaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (Gamma gammaForm = new Gamma(bitmap))
