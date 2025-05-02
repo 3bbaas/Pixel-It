@@ -18,6 +18,8 @@ namespace Pixel_It
         public Histogram(Bitmap image)
         {
             InitializeComponent();
+            this.Icon = new Icon("..\\..\\assets\\Pixel_it app icon.ico");
+
             bitmap = new Bitmap(image );
         }
 

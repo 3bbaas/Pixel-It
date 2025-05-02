@@ -59,15 +59,28 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.resizeToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.zoominToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.zoomoutToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.flipVerticalToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.flipHorizontalToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.rotateLToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.rotateRtoolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.filterPreview1 = new Pixel_It.FilterPreview();
-            this.resizeToolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.zoominToolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.zoomoutToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.flipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.degToLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.degToRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -115,7 +128,9 @@
             // toolToolStripMenuItem
             // 
             this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.compressToolStripMenuItem});
+            this.compressToolStripMenuItem,
+            this.flipToolStripMenuItem,
+            this.rotateToolStripMenuItem});
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
             this.toolToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.toolToolStripMenuItem.Text = "Tool";
@@ -123,7 +138,7 @@
             // compressToolStripMenuItem
             // 
             this.compressToolStripMenuItem.Name = "compressToolStripMenuItem";
-            this.compressToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.compressToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.compressToolStripMenuItem.Text = "Compress";
             this.compressToolStripMenuItem.Click += new System.EventHandler(this.compressToolStripMenuItem_Click);
             // 
@@ -257,7 +272,14 @@
             this.resizeToolStripButton4,
             this.toolStripSeparator6,
             this.zoominToolStripButton4,
-            this.zoomoutToolStripButton4});
+            this.zoomoutToolStripButton4,
+            this.toolStripSeparator7,
+            this.flipVerticalToolStripButton4,
+            this.flipHorizontalToolStripButton4,
+            this.toolStripSeparator8,
+            this.rotateLToolStripButton4,
+            this.rotateRtoolStripButton4,
+            this.toolStripSeparator9});
             this.toolBar.Location = new System.Drawing.Point(0, 28);
             this.toolBar.Name = "toolBar";
             this.toolBar.Size = new System.Drawing.Size(840, 27);
@@ -325,6 +347,96 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
+            // resizeToolStripButton4
+            // 
+            this.resizeToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.resizeToolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("resizeToolStripButton4.Image")));
+            this.resizeToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.resizeToolStripButton4.Name = "resizeToolStripButton4";
+            this.resizeToolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.resizeToolStripButton4.Text = "Fit";
+            this.resizeToolStripButton4.Click += new System.EventHandler(this.resizeToolStripButton4_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            // 
+            // zoominToolStripButton4
+            // 
+            this.zoominToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.zoominToolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("zoominToolStripButton4.Image")));
+            this.zoominToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.zoominToolStripButton4.Name = "zoominToolStripButton4";
+            this.zoominToolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.zoominToolStripButton4.Text = "Zoom In";
+            this.zoominToolStripButton4.Click += new System.EventHandler(this.zoominToolStripButton4_Click);
+            // 
+            // zoomoutToolStripButton4
+            // 
+            this.zoomoutToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.zoomoutToolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("zoomoutToolStripButton4.Image")));
+            this.zoomoutToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.zoomoutToolStripButton4.Name = "zoomoutToolStripButton4";
+            this.zoomoutToolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.zoomoutToolStripButton4.Text = "Zoom Out";
+            this.zoomoutToolStripButton4.Click += new System.EventHandler(this.zoomoutToolStripButton4_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
+            // 
+            // flipVerticalToolStripButton4
+            // 
+            this.flipVerticalToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.flipVerticalToolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("flipVerticalToolStripButton4.Image")));
+            this.flipVerticalToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.flipVerticalToolStripButton4.Name = "flipVerticalToolStripButton4";
+            this.flipVerticalToolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.flipVerticalToolStripButton4.Text = "Flip Vertical";
+            this.flipVerticalToolStripButton4.Click += new System.EventHandler(this.flipVerticalToolStripButton4_Click);
+            // 
+            // flipHorizontalToolStripButton4
+            // 
+            this.flipHorizontalToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.flipHorizontalToolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("flipHorizontalToolStripButton4.Image")));
+            this.flipHorizontalToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.flipHorizontalToolStripButton4.Name = "flipHorizontalToolStripButton4";
+            this.flipHorizontalToolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.flipHorizontalToolStripButton4.Text = "Flip Horizontal";
+            this.flipHorizontalToolStripButton4.Click += new System.EventHandler(this.flipHorizontalToolStripButton4_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
+            // 
+            // rotateLToolStripButton4
+            // 
+            this.rotateLToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.rotateLToolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("rotateLToolStripButton4.Image")));
+            this.rotateLToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.rotateLToolStripButton4.Name = "rotateLToolStripButton4";
+            this.rotateLToolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.rotateLToolStripButton4.Text = "Rotate Left";
+            this.rotateLToolStripButton4.Click += new System.EventHandler(this.rotateLToolStripButton4_Click);
+            // 
+            // rotateRtoolStripButton4
+            // 
+            this.rotateRtoolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.rotateRtoolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("rotateRtoolStripButton4.Image")));
+            this.rotateRtoolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.rotateRtoolStripButton4.Name = "rotateRtoolStripButton4";
+            this.rotateRtoolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.rotateRtoolStripButton4.Text = "Rotate Right";
+            this.rotateRtoolStripButton4.Click += new System.EventHandler(this.rotateRtoolStripButton4_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 27);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(12, 71);
@@ -365,40 +477,51 @@
             this.filterPreview1.TabIndex = 4;
             this.filterPreview1.Text = "filterPreview1";
             // 
-            // resizeToolStripButton4
+            // flipToolStripMenuItem
             // 
-            this.resizeToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.resizeToolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("resizeToolStripButton4.Image")));
-            this.resizeToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.resizeToolStripButton4.Name = "resizeToolStripButton4";
-            this.resizeToolStripButton4.Size = new System.Drawing.Size(29, 24);
-            this.resizeToolStripButton4.Text = "Fit";
-            this.resizeToolStripButton4.Click += new System.EventHandler(this.resizeToolStripButton4_Click);
+            this.flipToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verticalToolStripMenuItem,
+            this.horizontalToolStripMenuItem});
+            this.flipToolStripMenuItem.Name = "flipToolStripMenuItem";
+            this.flipToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.flipToolStripMenuItem.Text = "Flip";
             // 
-            // toolStripSeparator6
+            // verticalToolStripMenuItem
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
+            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.verticalToolStripMenuItem.Text = "&Vertical";
+            this.verticalToolStripMenuItem.Click += new System.EventHandler(this.verticalToolStripMenuItem_Click);
             // 
-            // zoominToolStripButton4
+            // horizontalToolStripMenuItem
             // 
-            this.zoominToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.zoominToolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("zoominToolStripButton4.Image")));
-            this.zoominToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.zoominToolStripButton4.Name = "zoominToolStripButton4";
-            this.zoominToolStripButton4.Size = new System.Drawing.Size(29, 24);
-            this.zoominToolStripButton4.Text = "Zoom In";
-            this.zoominToolStripButton4.Click += new System.EventHandler(this.zoominToolStripButton4_Click);
+            this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
+            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.horizontalToolStripMenuItem.Text = "&Horizontal";
+            this.horizontalToolStripMenuItem.Click += new System.EventHandler(this.horizontalToolStripMenuItem_Click);
             // 
-            // zoomoutToolStripButton4
+            // rotateToolStripMenuItem
             // 
-            this.zoomoutToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.zoomoutToolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("zoomoutToolStripButton4.Image")));
-            this.zoomoutToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.zoomoutToolStripButton4.Name = "zoomoutToolStripButton4";
-            this.zoomoutToolStripButton4.Size = new System.Drawing.Size(29, 24);
-            this.zoomoutToolStripButton4.Text = "Zoom Out";
-            this.zoomoutToolStripButton4.Click += new System.EventHandler(this.zoomoutToolStripButton4_Click);
+            this.rotateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.degToLeftToolStripMenuItem,
+            this.degToRightToolStripMenuItem});
+            this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
+            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.rotateToolStripMenuItem.Text = "Rotate";
+            // 
+            // degToLeftToolStripMenuItem
+            // 
+            this.degToLeftToolStripMenuItem.Name = "degToLeftToolStripMenuItem";
+            this.degToLeftToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.degToLeftToolStripMenuItem.Text = "90 deg to Left";
+            this.degToLeftToolStripMenuItem.Click += new System.EventHandler(this.degToLeftToolStripMenuItem_Click);
+            // 
+            // degToRightToolStripMenuItem
+            // 
+            this.degToRightToolStripMenuItem.Name = "degToRightToolStripMenuItem";
+            this.degToRightToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.degToRightToolStripMenuItem.Text = "90 deg to right";
+            this.degToRightToolStripMenuItem.Click += new System.EventHandler(this.degToRightToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -466,6 +589,19 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton zoominToolStripButton4;
         private System.Windows.Forms.ToolStripButton zoomoutToolStripButton4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton flipVerticalToolStripButton4;
+        private System.Windows.Forms.ToolStripButton flipHorizontalToolStripButton4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripButton rotateLToolStripButton4;
+        private System.Windows.Forms.ToolStripButton rotateRtoolStripButton4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem flipToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verticalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem horizontalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem degToLeftToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem degToRightToolStripMenuItem;
     }
 }
 

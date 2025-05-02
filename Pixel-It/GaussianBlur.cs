@@ -19,7 +19,9 @@ namespace Pixel_It
         bool updating = false;
         public GaussianBlur(Bitmap img)
         {
-            InitializeComponent(); bitmap = new Bitmap(img);
+            InitializeComponent();
+            this.Icon = new Icon("..\\..\\assets\\Pixel_it app icon.ico");
+            bitmap = new Bitmap(img);
             orignal = new Bitmap(img);
 
             filterGaussianBlurBox.Image = bitmap = ApplyGaussianBlur(orignal);

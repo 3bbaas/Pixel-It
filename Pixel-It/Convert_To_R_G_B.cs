@@ -16,6 +16,8 @@ namespace Pixel_It
         public Convert_To_R_G_B(Bitmap img)
         {
             InitializeComponent();
+            this.Icon = new Icon("..\\..\\assets\\Pixel_it app icon.ico");
+
             curr_source_image = new Bitmap(img, picBoxBlue.Size);
         }
         private void btnRed_Click(object sender, EventArgs e)

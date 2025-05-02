@@ -17,6 +17,8 @@ namespace Pixel_It
         public Negative(Bitmap img)
         {
             InitializeComponent();
+            this.Icon = new Icon("..\\..\\assets\\Pixel_it app icon.ico");
+
             bitmap = new Bitmap(img);
             orignal = new Bitmap(img);
 

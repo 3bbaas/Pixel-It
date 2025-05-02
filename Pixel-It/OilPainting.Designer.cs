@@ -108,7 +108,7 @@
             this.changeBrightnessLabel.Name = "changeBrightnessLabel";
             this.changeBrightnessLabel.Size = new System.Drawing.Size(181, 20);
             this.changeBrightnessLabel.TabIndex = 24;
-            this.changeBrightnessLabel.Text = "Change brightness by: ";
+            this.changeBrightnessLabel.Text = "Change brush size by: ";
             this.changeBrightnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // OilPainting

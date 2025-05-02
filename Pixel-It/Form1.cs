@@ -23,6 +23,8 @@ namespace Pixel_It
         public Form1()
         {
             InitializeComponent();
+            this.Icon = new Icon("..\\..\\assets\\Pixel_it app icon.ico");
+
         }
 
         private void OpenToolBar_Click(object sender, EventArgs e)
@@ -387,6 +389,64 @@ namespace Pixel_It
         {
             _zoomFactor = Math.Max(_zoomFactor - ZoomStep, MinZoom);
             UpdatePictureBox();
+        }
+
+        private void flipVerticalToolStripButton4_Click(object sender, EventArgs e)
+        {
+            bitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            filterPreview1.Image = bitmap;
+            filterPreview1.Invalidate();
+        }
+
+        private void flipHorizontalToolStripButton4_Click(object sender, EventArgs e)
+        {
+            bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+            filterPreview1.Image = bitmap;
+            filterPreview1.Invalidate();
+        }
+
+        private void rotateLToolStripButton4_Click(object sender, EventArgs e)
+        {
+            bitmap.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            filterPreview1.Image = bitmap;
+            filterPreview1.Invalidate();
+        }
+
+        private void rotateRtoolStripButton4_Click(object sender, EventArgs e)
+        {
+            bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            filterPreview1.Image = bitmap;
+            filterPreview1.Invalidate();
+        }
+
+        private void verticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            filterPreview1.Image = bitmap;
+            filterPreview1.Invalidate();
+        }
+
+        private void horizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+            filterPreview1.Image = bitmap;
+            filterPreview1.Invalidate();
+        }
+
+        private void degToLeftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bitmap.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            filterPreview1.Image = bitmap;
+            filterPreview1.Invalidate();
+
+        }
+
+        private void degToRightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            filterPreview1.Image = bitmap;
+            filterPreview1.Invalidate();
 
         }
 
@@ -401,7 +461,6 @@ namespace Pixel_It
             }
         }
 
-        
     }
 
 }

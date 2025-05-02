@@ -20,6 +20,8 @@ namespace Pixel_It
         public Blur(Bitmap img)
         {
             InitializeComponent(); bitmap = new Bitmap(img);
+            this.Icon = new Icon("..\\..\\assets\\Pixel_it app icon.ico");
+
             orignal = new Bitmap(img);
 
             filterBlurBox.Image = bitmap = ApplyBlurFilter(orignal);
