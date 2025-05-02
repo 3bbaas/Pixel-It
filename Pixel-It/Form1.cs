@@ -118,8 +118,6 @@ namespace Pixel_It
             return new Bitmap(imgToResize, size);
         }
 
- 
-
         private void calcHistogram_Click(object sender, EventArgs e)
         {
             Histogram histogram = new Histogram(bitmap);
@@ -332,6 +330,64 @@ namespace Pixel_It
                     filterPreview1.Image = bitmap = oilForm.bitmap;
                 }
             }
+        }
+
+        private void resizeToolStripButton4_Click(object sender, EventArgs e)
+        {
+            int frameW = filterPreview1.Width;
+            int frameH = filterPreview1.Height;
+            int imgW = bitmap.Width;
+            int imgH = bitmap.Height;
+
+            double ratioSrc = (double)imgW / imgH;
+            double ratioBox = (double)frameW / frameH;
+
+            int newW, newH;
+            if (ratioSrc > ratioBox)
+            {
+                newW = frameW;
+                newH = (int)(frameW / ratioSrc);
+            }
+            else
+            {
+                newH = frameH;
+                newW = (int)(frameH * ratioSrc);
+            }
+
+            Bitmap resized = new Bitmap(bitmap, new Size(newW, newH));
+            filterPreview1.Image = resized;
+
+        }
+
+
+        private float _zoomFactor = 1.0f; // current zoom level (1.0 = 100%)
+        private const float ZoomStep = 0.1f; // 10% per click  
+        private const float MinZoom = 0.1f; // 10%  
+        private const float MaxZoom = 5.0f; // 500%  
+        Bitmap _originalImage = null;
+        private void UpdatePictureBox()
+        {
+            _originalImage = bitmap;
+            if (_originalImage == null) return;
+
+            int newW = (int)(_originalImage.Width * _zoomFactor);
+            int newH = (int)(_originalImage.Height * _zoomFactor);
+            Size N_Size = new Size(newW, newH);
+
+            Bitmap resized = new Bitmap(_originalImage, N_Size);
+            filterPreview1.Image = resized;
+        }
+        private void zoominToolStripButton4_Click(object sender, EventArgs e)
+        {
+            _zoomFactor = Math.Min(_zoomFactor + ZoomStep, MaxZoom);
+            UpdatePictureBox();
+
+        }
+        private void zoomoutToolStripButton4_Click(object sender, EventArgs e)
+        {
+            _zoomFactor = Math.Max(_zoomFactor - ZoomStep, MinZoom);
+            UpdatePictureBox();
+
         }
 
         private void gammaToolStripMenuItem_Click(object sender, EventArgs e)
