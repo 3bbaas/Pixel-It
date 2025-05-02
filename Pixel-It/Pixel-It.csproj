@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\Pixel-It-App\</PublishUrl>
+    <PublishUrl>D:\Pixel-It PreRelease 0.2\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,13 +23,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <SupportUrl>https://github.com/3bbaas</SupportUrl>
-    <ErrorReportUrl>https://github.com/3bbaas/Pixel-It/issues</ErrorReportUrl>
+    <SupportUrl>https://github.com/3bbaas/Pixel-It</SupportUrl>
     <TargetCulture>en</TargetCulture>
     <ProductName>Pixel It</ProductName>
-    <PublisherName>Ahmed Abbas</PublisherName>
-    <SuiteName>Personal Project</SuiteName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <PublisherName>abbas</PublisherName>
+    <SuiteName>Pixel-It</SuiteName>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

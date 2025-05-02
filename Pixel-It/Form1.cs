@@ -24,7 +24,38 @@ namespace Pixel_It
         {
             InitializeComponent();
             this.Icon = new Icon("..\\..\\assets\\Pixel_it app icon.ico");
+            openClicked();
+        }
 
+        void openClicked(bool can = false)
+        {
+            this.compressToolStripMenuItem.Enabled = can;
+            this.calcHistogram.Enabled = can;
+            this.channelsToolStripMenuItem.Enabled = can;
+            this.greyscaleToolStripMenuItem.Enabled = can;
+            this.brightnessToolStripMenuItem.Enabled = can;
+            this.contrastToolStripMenuItem.Enabled = can;
+            this.negativeToolStripMenuItem.Enabled = can;
+            this.blurToolStripMenuItem.Enabled = can;
+            this.gaussianBlurToolStripMenuItem.Enabled = can;
+            this.sobelEdgeDetectionToolStripMenuItem.Enabled = can;
+            this.saveToolStripMenuItem.Enabled = can;
+            this.toolStripButton2.Enabled = can;
+            this.toolStripButton3.Enabled = can;
+            this.toolStripButton1.Enabled = can;
+            this.oilPaintingToolStripMenuItem.Enabled = can;
+            this.resizeToolStripButton4.Enabled = can;
+            this.zoominToolStripButton4.Enabled = can;
+            this.zoomoutToolStripButton4.Enabled = can;
+            this.flipVerticalToolStripButton4.Enabled = can;
+            this.flipHorizontalToolStripButton4.Enabled = can;
+            this.rotateLToolStripButton4.Enabled = can;
+            this.rotateRtoolStripButton4.Enabled = can;
+            this.verticalToolStripMenuItem.Enabled = can;
+            this.horizontalToolStripMenuItem.Enabled = can;
+            this.degToLeftToolStripMenuItem.Enabled = can;
+            this.degToRightToolStripMenuItem.Enabled = can;
+            this.gammaToolStripMenuItem.Enabled = can;
         }
 
         private void OpenToolBar_Click(object sender, EventArgs e)
@@ -38,6 +69,7 @@ namespace Pixel_It
                     var loadedImage = new Bitmap(dlg.FileName);
                     bitmap = new Bitmap(loadedImage);
                     filterPreview1.Image = bitmap;
+                    openClicked(true);
                 }
                 catch (Exception ex)
                 {
@@ -85,12 +117,10 @@ namespace Pixel_It
             }
             return dest;
         }
-
         private void compressToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CompressBitmapToJpegFile(ResizeBitmap(bitmap, bitmap.Width/2, bitmap.Height/2), 25);
         }
-
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new OpenFileDialog())
@@ -107,6 +137,8 @@ namespace Pixel_It
                     //cvlib.CvResize(ref image1, ref resized_image, cvlib.CV_INTER_LINEAR);
                     //filterPreview1.Image = IplImageToBitmap(resized_image);
                     filterPreview1.Image = bitmap;
+                    openClicked(true);
+
                 }
                 catch (Exception ex)
                 {
@@ -114,7 +146,6 @@ namespace Pixel_It
                 }
             }
         }
-
         public static Bitmap ResizeImage(Bitmap imgToResize, Size size)
         {
             return new Bitmap(imgToResize, size);
@@ -460,7 +491,6 @@ namespace Pixel_It
                 }
             }
         }
-
     }
 
 }
