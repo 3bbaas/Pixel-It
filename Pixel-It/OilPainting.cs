@@ -42,10 +42,10 @@ namespace Pixel_It
             int height = source.Height;
             Bitmap result = new Bitmap(width, height);
 
-            // نستخدم قيمة ثابتة لـ IntensityLevels
+
             const int intensityLevels = 30;
 
-            // مصفوفات الحساب
+
             int[] count = new int[intensityLevels];
             int[] sumR = new int[intensityLevels];
             int[] sumG = new int[intensityLevels];
@@ -55,13 +55,12 @@ namespace Pixel_It
             {
                 for (int y = 0; y < height; y++)
                 {
-                    // إعادة تعيين الجداول
+
                     Array.Clear(count, 0, intensityLevels);
                     Array.Clear(sumR, 0, intensityLevels);
                     Array.Clear(sumG, 0, intensityLevels);
                     Array.Clear(sumB, 0, intensityLevels);
 
-                    // مسح منطقة الفرشاة حول البكسل
                     for (int nx = Math.Max(0, x - brushSize); nx <= Math.Min(width - 1, x + brushSize); nx++)
                     {
                         for (int ny = Math.Max(0, y - brushSize); ny <= Math.Min(height - 1, y + brushSize); ny++)
@@ -77,7 +76,7 @@ namespace Pixel_It
                         }
                     }
 
-                    // إيجاد المستوى الأكثر ظهورًا
+
                     int maxCount = 0, bestIdx = 0;
                     for (int i = 0; i < intensityLevels; i++)
                     {
@@ -88,7 +87,7 @@ namespace Pixel_It
                         }
                     }
 
-                    // حساب متوسط اللون للمستوى السائد
+
                     Color original = source.GetPixel(x, y);
                     int r = sumR[bestIdx] / maxCount;
                     int g = sumG[bestIdx] / maxCount;
