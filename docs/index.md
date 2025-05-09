@@ -2,13 +2,65 @@
 
 For full project source codes visit [Pixel-It](https://github.com/3bbaas/Pixel-It).
 
-## Preview App
+## Description
+**Pixel It** is a lightweight C# WinForms image-editor that lets you apply filters—brightness, contrast, blur, oil-painting, negative, grayscale, metadata viewing/clearing, and more—to any bitmap. It’s perfect for quick, pixel-level edits without the weight of a full graphics suite.
+
+## Table of Contents
+
+1. [Features](#features)
+2. [Demo](#demo)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Configuration](#configuration)
+6. [Project Layout](#project-layout)
+7. [Contributing](#contributing)
+8. [License](#license)
+
+
+
+## Features
+- Core Filters: Brightness, Contrast, Gaussian Blur, Uniform Blur, Sobel Edge Detect, Invert (Negative), Grayscale 
+
+- Artistic Effects: Oil Painting, Pixelate, Posterize 
+
+- Metadata Tools: View and clear EXIF metadata from JPEGs 
+
+- UI Controls: Fit-to-PictureBox, Zoom In/Out, Undo/Redo, Crop 
+
+- File I/O: Save As (JPEG/PNG/BMP/GIF/TIFF), Batch-save in multiple formats, Compression quality slider 
+
+## Demo
 <br>
 
 <figure markdown="span">
   ![Main Window](./assets/main_window.png?v=4/200x200/){ width="500" loading=lazy }
   <figcaption>Main Window App</figcaption>
 </figure>
+
+
+## Installation
+
+1. Clone the repo
+```bash
+git clone https://github.com/3bbaas/Pixel-It.git
+cd pixel_it
+```
+2. Open in Visual Studio 2019+ (requires .NET 5/6).
+3. Restore NuGet packages, including [MetadataExtractor] for EXIF
+4. Build & Run the Pixel_It project.
+
+## Usage
+1. Load an image via File :arrow_right: Open.
+2. Select a filter from the toolbar (e.g., Brightness, Contrast).
+3. Adjust parameters with trackbars or numeric fields.
+4. Preview updates in real time (Fit/Zoom controls available).
+5. Apply to commit or Cancel to revert.
+6. Save As to write out the edited bitmap.
+
+## Configuration  
+- **JPEG Quality**: Default 90%; adjustable in the Compress dialog.
+- **Undo Depth**: Unlimited snapshots via Memento pattern (configurable in code).  
+- **Metadata Columns**: Defined in `MetaData` form’s `ListView` columns.  
 
 ## Project layout
     Pixel-It:
@@ -86,10 +138,14 @@ For full project source codes visit [Pixel-It](https://github.com/3bbaas/Pixel-I
             flip_horizontal.png
             ... 
 
-## Starting
+## Contributing  
+We welcome pull requests!  
 
-The code start running from here
+1. Fork the repo  
+2. Create your feature branch (`git checkout -b feature/XYZ`)  
+3. Commit your changes (`git commit -m "Add XYZ"`)  
+4. Push (`git push origin feature/XYZ`)  
+5. Open a Pull Request  
 
-```csharp title="Program.cs" 
-    Application.Run(new Form1());
-```
+## License  
+This project is licensed under the **MIT License**. See [LICENSE](../LICENSE.txt) for details.
