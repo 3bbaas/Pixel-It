@@ -1,11 +1,10 @@
-
 site_name: Pixel-It Documentation
-site_url: https://3bbaas.github.io/pixel-it
+site_url: https://3bbaas.github.io/Pixel-It/
 
 theme:
   name: material
-  logo: assets\logo.png
-  favicon: assets\favicon.ico
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
   palette:
     - scheme: slate
       toggle:
@@ -34,6 +33,9 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
   - tables
   - pymdownx.emoji:
@@ -46,7 +48,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
-
 
 
 copyright: Copyright &copy; 2024 3bbaas

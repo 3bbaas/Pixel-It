@@ -2,7 +2,7 @@
 
 ## Why Pixel-It?
 
-
+### Coming Soon! :soon: 
 
 ## Project Developers
 
