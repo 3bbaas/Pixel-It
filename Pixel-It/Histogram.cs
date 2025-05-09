@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AForge.Controls;
 
 namespace Pixel_It
 {
@@ -60,8 +54,6 @@ namespace Pixel_It
             if (histogramImage != null)
                 EqualizedHistogramBox.Image = new Bitmap(histogramImage, EqualizedHistogramBox.Size);
 
-            //EqualizedHistogramBox.Image = histogramImage;
-
         }
         public Bitmap histogramEqualization(Bitmap sourceImage)
         {
@@ -71,40 +63,7 @@ namespace Pixel_It
                 return null;
             }
 
-            //Bitmap renderedImage = new Bitmap(sourceImage);
 
-            //uint pixels = (uint)(renderedImage.Height * renderedImage.Width);
-            //decimal scale = 255m / pixels;
-
-            //int x, y, R, G, B;
-
-            //ImageStatistics statistics = new ImageStatistics(renderedImage);
-
-            ////Create histogram arrays for R,G,B channels
-            //int[] cdfR = statistics.Red.Values.ToArray();
-            //int[] cdfG = statistics.Green.Values.ToArray();
-            //int[] cdfB = statistics.Blue.Values.ToArray();
-
-            ////Convert arrays to Cumulative Distribution Frequency data
-            //for (int r = 1; r <= 255; r++)
-            //{
-            //    cdfR[r] = cdfR[r] + cdfR[r - 1];
-            //    cdfG[r] = cdfG[r] + cdfG[r - 1];
-            //    cdfB[r] = cdfB[r] + cdfB[r - 1];
-            //}
-
-            //for (y = 0; y < renderedImage.Height; y++)
-            //{
-            //    for (x = 0; x < renderedImage.Width; x++)
-            //    {
-            //        Color originalColor = renderedImage.GetPixel(x, y);
-            //        int r = Math.Min(255, (int)(cdfR[originalColor.R] * scale));
-            //        int g = Math.Min(255, (int)(cdfG[originalColor.G] * scale));
-            //        int b = Math.Min(255, (int)(cdfB[originalColor.B] * scale));
-            //        renderedImage.SetPixel(x, y, Color.FromArgb(r, g, b));
-            //    }
-            //}
-            //return renderedImage;
 
             Bitmap result = new Bitmap(sourceImage.Width, sourceImage.Height, PixelFormat.Format24bppRgb);
 

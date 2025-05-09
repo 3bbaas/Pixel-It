@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AForge.Imaging.Filters;
 
 namespace Pixel_It
 {
@@ -94,19 +88,10 @@ namespace Pixel_It
             filterBrightnessBox.Image = bitmap = ApplyBrightnessFilter(orignal, value);
         }
 
-        private void previewLabel_Click(object sender, EventArgs e)
-        {
+        private void previewLabel_Click(object sender, EventArgs e) { }
 
-        }
+        private void changeBrightnessLabel_Click(object sender, EventArgs e) { }
 
-        private void changeBrightnessLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void filterBrightnessBox_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void filterBrightnessBox_Click(object sender, EventArgs e) { }
     }
 }

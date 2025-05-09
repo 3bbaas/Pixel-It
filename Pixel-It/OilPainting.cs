@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AForge.Imaging.Filters;
+
 namespace Pixel_It
 {
     public partial class OilPainting : Form
@@ -30,11 +25,6 @@ namespace Pixel_It
             oilPaintTrackBar.Minimum = 1;
             oilPaintTrackBar.Maximum = 25;
             oilPaintTrackBar.Value = 2;
-        }
- 
-        private int Clamp(int value)
-        {
-            return Math.Max(0, Math.Min(255, value));
         }
         private Bitmap ApplyOilPaintingBrushSize(Bitmap source, int brushSize)
         {

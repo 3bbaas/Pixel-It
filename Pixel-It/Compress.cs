@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using openCV;
 
 namespace Pixel_It
 {
@@ -22,12 +17,9 @@ namespace Pixel_It
 
             this.Icon = new Icon("..\\..\\assets\\Pixel_it app icon.ico");
 
-            // store original & preview it
             orignal = new Bitmap(img);
             bitmap = new Bitmap(img);
             filterCompressBox.Image = bitmap;
-
-            // configure slider
             qualityTrackBar1.Minimum = 10;
             qualityTrackBar1.Maximum = 100;
             qualityTrackBar1.Value = 90;
@@ -45,16 +37,13 @@ namespace Pixel_It
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
-
         }
 
         private void qualityTrackBar1_Scroll(object sender, EventArgs e)
         {
             int q = qualityTrackBar1.Value;
-            //changeQualityTextBox.Text = q.ToString();
-
-            // compress on-the-fly
-            bitmap?.Dispose();
+            
+            bitmap?.Dispose(); // compress on-the-fly
             bitmap = CompressJpeg(orignal, q);
             filterCompressBox.Image = bitmap;
         }
