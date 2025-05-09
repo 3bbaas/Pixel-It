@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -86,6 +86,9 @@
     <Reference Include="AForge.Math">
       <HintPath>..\..\VSP\5-histogram aqualization\histogram\AForge\AForge.Math.dll</HintPath>
     </Reference>
+    <Reference Include="MetadataExtractor, Version=2.8.1.0, Culture=neutral, PublicKeyToken=b66b5ccaf776c301, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetadataExtractor.2.8.1\lib\net45\MetadataExtractor.dll</HintPath>
+    </Reference>
     <Reference Include="openCV">
       <HintPath>C:\Windows\System32\openCV.dll</HintPath>
     </Reference>
@@ -102,8 +105,17 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="XmpCore, Version=6.1.10.1, Culture=neutral, PublicKeyToken=961f4f366277b80e, processorArchitecture=MSIL">
+      <HintPath>..\packages\XmpCore.6.1.10.1\lib\net35\XmpCore.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="Blur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,12 @@
     </Compile>
     <Compile Include="Brightness.Designer.cs">
       <DependentUpon>Brightness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compress.Designer.cs">
+      <DependentUpon>Compress.cs</DependentUpon>
     </Compile>
     <Compile Include="Contrast.cs">
       <SubType>Form</SubType>
@@ -168,6 +186,12 @@
     <Compile Include="Histogram.Designer.cs">
       <DependentUpon>Histogram.cs</DependentUpon>
     </Compile>
+    <Compile Include="MetaData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MetaData.Designer.cs">
+      <DependentUpon>MetaData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Negative.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,11 +212,17 @@
     <Compile Include="Sobel.Designer.cs">
       <DependentUpon>Sobel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Blur.resx">
       <DependentUpon>Blur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Brightness.resx">
       <DependentUpon>Brightness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compress.resx">
+      <DependentUpon>Compress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contrast.resx">
       <DependentUpon>Contrast.cs</DependentUpon>
@@ -221,6 +251,9 @@
     <EmbeddedResource Include="Histogram.resx">
       <DependentUpon>Histogram.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MetaData.resx">
+      <DependentUpon>MetaData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Negative.resx">
       <DependentUpon>Negative.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +273,7 @@
     <EmbeddedResource Include="Sobel.resx">
       <DependentUpon>Sobel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Pixel-It_1_TemporaryKey.pfx" />
     <None Include="Pixel-It_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />
@@ -261,11 +295,15 @@
     <Content Include="Aforge\AForge.dll" />
     <Content Include="Aforge\AForge.Imaging.dll" />
     <Content Include="Aforge\AForge.Math.dll" />
+    <Content Include="assets\app-about-icon.png" />
     <Content Include="assets\flip_horizontal.png" />
     <Content Include="assets\flip_vertical.png" />
     <Content Include="assets\histogram.png" />
+    <Content Include="assets\linkedin.ico" />
+    <Content Include="assets\linkedin.png" />
     <Content Include="assets\openIcon.png" />
     <EmbeddedResource Include="assets\Pixel_it app icon.ico" />
+    <Content Include="assets\pixel.png" />
     <Content Include="assets\resize.png" />
     <Content Include="assets\rgb.png" />
     <Content Include="assets\rotateleft.png" />

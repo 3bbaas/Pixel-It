@@ -19,6 +19,7 @@ namespace Pixel_It
     {
         Bitmap bitmap, bit;
         IplImage image1;
+        string img_path;
 
         public Form1()
         {
@@ -56,6 +57,12 @@ namespace Pixel_It
             this.degToLeftToolStripMenuItem.Enabled = can;
             this.degToRightToolStripMenuItem.Enabled = can;
             this.gammaToolStripMenuItem.Enabled = can;
+            this.saveInAllFormatsToolStripMenuItem.Enabled = can;
+            this.saveasToolStripMenuItem.Enabled = can;
+            this.metaDataToolStripMenuItem.Enabled = can;
+            this.clearMetaDataToolStripMenuItem.Enabled = can;
+            this.rotateToolStripMenuItem.Enabled = can;
+            this.flipToolStripMenuItem.Enabled = can;
         }
 
         private void OpenToolBar_Click(object sender, EventArgs e)
@@ -67,6 +74,7 @@ namespace Pixel_It
                 try
                 {
                     var loadedImage = new Bitmap(dlg.FileName);
+                    img_path = dlg.FileName;
                     bitmap = new Bitmap(loadedImage);
                     filterPreview1.Image = bitmap;
                     openClicked(true);
@@ -107,6 +115,8 @@ namespace Pixel_It
                 }
             }
         }
+        
+        
         public Bitmap ResizeBitmap(Bitmap src, int newWidth, int newHeight)
         {
             var dest = new Bitmap(newWidth, newHeight);
@@ -117,10 +127,123 @@ namespace Pixel_It
             }
             return dest;
         }
+
         private void compressToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CompressBitmapToJpegFile(ResizeBitmap(bitmap, bitmap.Width/2, bitmap.Height/2), 25);
+            using (var dlg = new Compress(bitmap))
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    bitmap = dlg.bitmap;
+                    filterPreview1.Image = bitmap;
+
+                    SaveCompressed(bitmap, dlg.Quality);
+                }
+            }
         }
+
+        private void SaveCompressedInAllFormats(Bitmap bmp)
+        {
+            using (var dlg = new SaveFileDialog())
+            {
+                dlg.Title = "Choose Base Folder Name";
+                dlg.Filter = "JPEG|*.jpg|PNG|*.png|BMP|*.bmp|GIF|*.gif|TIFF|*.tif";
+                dlg.AddExtension = true;
+                dlg.OverwritePrompt = false;
+
+                if (dlg.ShowDialog() != DialogResult.OK)
+                    return;
+
+                string parentDir = Path.GetDirectoryName(dlg.FileName);
+                string baseName = Path.GetFileNameWithoutExtension(dlg.FileName);
+
+                string targetDir = Path.Combine(parentDir, baseName + " - By Pixel-IT");
+                Directory.CreateDirectory(targetDir);
+
+                SaveFormat(bmp, ImageFormat.Jpeg, Path.Combine(targetDir, baseName + ".jpg"));
+                SaveFormat(bmp, ImageFormat.Png, Path.Combine(targetDir, baseName + ".png"));
+                SaveFormat(bmp, ImageFormat.Bmp, Path.Combine(targetDir, baseName + ".bmp"));
+                SaveFormat(bmp, ImageFormat.Gif, Path.Combine(targetDir, baseName + ".gif"));
+                SaveFormat(bmp, ImageFormat.Tiff, Path.Combine(targetDir, baseName + ".tif"));
+            }
+        }
+
+        private void SaveCompressed(Bitmap bmp, long quality)
+        {
+            using (var dlg = new SaveFileDialog())
+            {
+                dlg.Title = "Save compressed image as...";
+                dlg.Filter = "JPEG|*.jpg|PNG|*.png|BMP|*.bmp|GIF|*.gif|TIFF|*.tif";
+                dlg.AddExtension = true;
+                dlg.OverwritePrompt = true;
+                if (dlg.ShowDialog() != DialogResult.OK) return;
+
+                string dir = Path.GetDirectoryName(dlg.FileName);
+                string name = Path.GetFileNameWithoutExtension(dlg.FileName);
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+                string ext = Path.GetExtension(dlg.FileName).ToLowerInvariant();
+                ImageFormat fmt;
+
+                if (ext == ".jpg" || ext == ".jpeg")
+                    fmt = ImageFormat.Jpeg;
+                else if (ext == ".png")
+                    fmt = ImageFormat.Png;
+                else if (ext == ".bmp")
+                    fmt = ImageFormat.Bmp;
+                else if (ext == ".gif")
+                    fmt = ImageFormat.Gif;
+                else if (ext == ".tif" || ext == ".tiff")
+                    fmt = ImageFormat.Tiff;
+                else
+                    throw new NotSupportedException("Unsupported image format");
+                using (var temp = new Bitmap(bmp))
+                {
+                    if (fmt.Equals(ImageFormat.Jpeg))
+                    {
+                        var codec = ImageCodecInfo.GetImageEncoders()
+                            .First(c => c.FormatID == ImageFormat.Jpeg.Guid);
+                        var eps = new EncoderParameters(1);
+                        eps.Param[0] = new EncoderParameter(
+                            System.Drawing.Imaging.Encoder.Quality,
+                            quality);
+                        temp.Save(dlg.FileName, codec, eps);
+                    }
+                    else
+                    {
+                        temp.Save(dlg.FileName, fmt);
+                    }
+                }
+
+                //string basePath = Path.Combine(dir, name);
+
+                //SaveFormat(bmp, ImageFormat.Jpeg, Path.ChangeExtension(basePath, ".jpg"), encoderParamsForJpeg(quality));
+                //SaveFormat(bmp, ImageFormat.Png, Path.ChangeExtension(basePath, ".png"));
+                //SaveFormat(bmp, ImageFormat.Bmp, Path.ChangeExtension(basePath, ".bmp"));
+                //SaveFormat(bmp, ImageFormat.Gif, Path.ChangeExtension(basePath, ".gif"));
+                //SaveFormat(bmp, ImageFormat.Tiff, Path.ChangeExtension(basePath, ".tif"));
+            }
+        }
+        private void SaveFormat(Bitmap bmp, ImageFormat fmt, string fileName, EncoderParameters eps = null)
+        {
+            if (File.Exists(fileName))
+                File.Delete(fileName);
+
+            using (var temp = new Bitmap(bmp))
+            {
+                if (eps != null && fmt.Equals(ImageFormat.Jpeg))
+                {
+                    var codec = ImageCodecInfo.GetImageEncoders()
+                        .First(c => c.FormatID == ImageFormat.Jpeg.Guid);
+                    temp.Save(fileName, codec, eps);
+                }
+                else
+                {
+                    temp.Save(fileName, fmt);
+                }
+            }
+        }
+ 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dlg = new OpenFileDialog())
@@ -131,6 +254,8 @@ namespace Pixel_It
                 {
                     var loadedImage = new Bitmap(dlg.FileName);
                     bitmap = new Bitmap(loadedImage);
+                    img_path = dlg.FileName;
+
                     //image1 = cvlib.CvLoadImage(dlg.FileName, cvlib.CV_LOAD_IMAGE_COLOR);
                     //CvSize size = new CvSize(filterPreview1.Width, filterPreview1.Height);
                     //IplImage resized_image = cvlib.CvCreateImage(size, image1.depth, image1.nChannels);
@@ -479,6 +604,108 @@ namespace Pixel_It
             filterPreview1.Image = bitmap;
             filterPreview1.Invalidate();
 
+        }
+
+        private void saveInAllFormatsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveCompressedInAllFormats(bitmap);
+        }
+
+        private void SaveAsBitmap(Bitmap bmp, long jpegQuality = 90L)
+        {
+            using (var sfd = new SaveFileDialog())
+            {
+                sfd.Title = "Save Image As...";
+                sfd.Filter = "JPEG Image|*.jpg|PNG Image|*.png|Bitmap|*.bmp|GIF Image|*.gif|TIFF Image|*.tif";
+                sfd.AddExtension = true;
+                sfd.OverwritePrompt = false; 
+
+                if (sfd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                 string dir = Path.GetDirectoryName(sfd.FileName);
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);   
+
+                 string ext = Path.GetExtension(sfd.FileName).ToLowerInvariant();
+                ImageFormat fmt;
+                if (ext == ".jpg" || ext == ".jpeg")
+                    fmt = ImageFormat.Jpeg;
+                else if (ext == ".png")
+                    fmt = ImageFormat.Png;
+                else if (ext == ".bmp")
+                    fmt = ImageFormat.Bmp;
+                else if (ext == ".gif")
+                    fmt = ImageFormat.Gif;
+                else if (ext == ".tif" || ext == ".tiff")
+                    fmt = ImageFormat.Tiff;
+                else
+                    throw new NotSupportedException("Unsupported image format");
+
+                 if (File.Exists(sfd.FileName))
+                    File.Delete(sfd.FileName);   
+
+                 using (var temp = new Bitmap(bmp))       
+                {
+                    if (fmt.Equals(ImageFormat.Jpeg))
+                    {
+                        var codec = ImageCodecInfo.GetImageEncoders()
+                            .First(c => c.FormatID == ImageFormat.Jpeg.Guid);
+                        var eps = new EncoderParameters(1);
+                        eps.Param[0] = new EncoderParameter(
+                            System.Drawing.Imaging.Encoder.Quality,
+                            jpegQuality);   
+                        temp.Save(sfd.FileName, codec, eps);
+                    }
+                    else
+                    {
+                        temp.Save(sfd.FileName, fmt);
+                    }
+                }
+            }
+        }
+
+        private void saveasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveAsBitmap(bitmap, jpegQuality: 99L);
+        }
+
+        private void metaDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (MetaData metadata = new MetaData(img_path, bitmap))
+            {
+                metadata.ShowDialog();
+                filterPreview1.Image = bitmap = metadata.bitmap;
+            }
+
+        }
+
+        private void clearMetaDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (bitmap == null) return;
+
+            try
+            {
+                foreach (int id in bitmap.PropertyIdList)
+                    bitmap.RemovePropertyItem(id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error clearing metadata: " + ex.Message);
+            }
+
+        }
+
+        private void flipToolStripMenuItem_Click(object sender, EventArgs e)
+        { }
+
+        private void rotateToolStripMenuItem_Click(object sender, EventArgs e)
+        { }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.Show();
         }
 
         private void gammaToolStripMenuItem_Click(object sender, EventArgs e)
