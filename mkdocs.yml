@@ -1,5 +1,7 @@
 site_name: Pixel-It Documentation
 site_url: https://3bbaas.github.io/Pixel-It/
+repo_name: 'Pixel-It'
+repo_url: 'https://github.com/3bbaas/Pixel-It'
 
 theme:
   name: material
@@ -10,19 +12,22 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Dark mode
-      primary: green
-      accent: deep purple
-
+      primary: custom
+      accent: custom
     - scheme: default
       toggle:
         icon: material/weather-night
         name: Light mode
-      primary: blue
-      accent: deep orange
+      primary: custom
+      accent: custom
   features:
     - content.code.copy
     - navigation.footer
+    - navigation.expand
+    - navigation.instant
 
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - pymdownx.critic
@@ -36,7 +41,6 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-
   - tables
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -49,5 +53,20 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
 
+nav:
+  - Home: index.md
+  - Features:
+      - Filters:
+          - Negative: Filters/Negative.md
+  - About: About.md
 
-copyright: Copyright &copy; 2024 3bbaas
+
+plugins:
+  - search
+  - tags
+  - git-authors
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - minify:
+      minify_html: true
+copyright: Copyright &copy; 2025 Pixel-It

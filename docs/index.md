@@ -148,4 +148,4 @@ We welcome pull requests!
 5. Open a Pull Request  
 
 ## License  
-This project is licensed under the **MIT License**. See [LICENSE](../LICENSE.txt) for details.
+This project is licensed under the **MIT License**. See [LICENSE](https://github.com/3bbaas/Pixel-It/blob/master/LICENSE.txt) for details.
