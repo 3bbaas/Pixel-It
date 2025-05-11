@@ -56,17 +56,30 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Features:
-      - Filters:
-          - Negative: Filters/Negative.md
+      - Filters: 
+          - Negative: Filters/negative.md
+          - Blur: Filters/blur.md
+          - Brightness: Filters/brightness.md
+          - Contrast: Filters/contrast.md
+          - Gamma: Filters/gamma.md
+          - Gaussian Blur: Filters/gaussian_blur.md
+          - Oil Painting: Filters/oil_painting.md
+          - Sobel Edge: Filters/sobel.md
+      - View: 
+          - Channels: View/colors.md
+          - Histogram: View/histogram.md
+          - Image Equalization: View/equalized_image.md
   - About: About.md
 
 
 plugins:
-  - search
   - tags
   - git-authors
   - git-revision-date-localized:
       enable_creation_date: true
   - minify:
       minify_html: true
+  - search:
+      lang: en
+
 copyright: Copyright &copy; 2025 Pixel-It

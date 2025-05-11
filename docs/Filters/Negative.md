@@ -43,3 +43,7 @@ private Bitmap ApplyNegativeFilter(Bitmap sourceImage)
 !!! info "Negative (photography)"
 
     In photography, a negative is an image, usually on a strip or sheet of transparent plastic film, in which the lightest areas of the photographed subject appear darkest and the darkest areas appear lightest. [`Wiki`](https://en.wikipedia.org/wiki/Negative_(photography))
+
+
+!!! info "XXXXXXXXXXXXXXXXXXXX"
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

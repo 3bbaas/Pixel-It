@@ -1,3 +1,8 @@
+---
+icon: material/home
+---
+
+
 # Welcome to Pixel-It
 
 For full project source codes visit [Pixel-It](https://github.com/3bbaas/Pixel-It).
