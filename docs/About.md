@@ -12,7 +12,7 @@
 
     ---
 
-    ![Image title](https://avatars.githubusercontent.com/u/115493725?v=4/200x200/){ loading=lazy }
+    ![Image title](https://github.com/3bbaas.png?v=4/200x200/){ loading=lazy }
  
     :material-file-document: [`Resume`](#)
 
@@ -24,7 +24,7 @@
 
     ---
 
-    ![Image title](https://avatars.githubusercontent.com/u/177738292?v=4/200x200/){ loading=lazy }
+    ![Image title](https://github.com/HasnaaNageh321.png?v=4/200x200/){ loading=lazy }
 
     :material-file-document: [`Resume`](#)
 
@@ -36,7 +36,7 @@
 
     ---
 
-    ![Image title](https://avatars.githubusercontent.com/u/113642495?v=4/200x200/){ loading=lazy }
+    ![Image title](https://github.com/jamika78.png?v=4/200x200/){ loading=lazy }
 
     :material-file-document: [`Resume`](#)
 
@@ -48,7 +48,7 @@
 
     ---
 
-    ![Image title](https://avatars.githubusercontent.com/u/114098606?v=4/200x200/){ loading=lazy }
+    ![Image title](https://github.com/RokiyaAbdElsatar.png?v=4/200x200/){ loading=lazy }
 
     :material-file-document: [`Resume`](#)
 
@@ -60,7 +60,7 @@
 
     ---
 
-    ![Image title](https://avatars.githubusercontent.com/u/125474292?v=4/200x200/){ loading=lazy }
+    ![Image title](https://github.com/SeifMohamed10.png?v=4/200x200/){ loading=lazy }
 
     :material-file-document: [`Resume`](#)
 

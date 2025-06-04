@@ -8,7 +8,7 @@ icon: material/home
 For full project source codes visit [Pixel-It](https://github.com/3bbaas/Pixel-It).
 
 ## Description
-**Pixel It** is a lightweight C# WinForms image-editor that lets you apply filters—brightness, contrast, blur, oil-painting, negative, grayscale, metadata viewing/clearing, and more—to any bitmap. It’s perfect for quick, pixel-level edits without the weight of a full graphics suite.
+**Pixel It** is a lightweight C# WinForms image-editor that lets you apply filters-brightness, contrast, blur, oil-painting, negative, grayscale, metadata viewing/clearing, and more-to any bitmap. It’s perfect for quick, pixel-level edits without the weight of a full graphics suite.
 
 ## Table of Contents
 
