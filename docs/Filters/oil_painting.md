@@ -14,43 +14,46 @@ Simulates a painterly look by grouping neighborhood pixels by intensity, then re
 ## Usage in Code
 
 ```csharp title="OilPainting.cs"
-private Bitmap ApplyOilPaintingBrushSize(Bitmap src, int brushSize)
+private Bitmap ApplyOilPaintingBrushSize(Bitmap source, int brushSize)
 {
-    int w=src.Width, h=src.Height;
-    const int levels = 30;
-    int[] count = new int[levels], sumR = new int[levels],
-          sumG = new int[levels], sumB = new int[levels];
+    const int intensityLevels = 30;
 
-    Bitmap outBmp = new Bitmap(w, h);
-
-    for (int x=0; x<w; x++)
-    for (int y=0; y<h; y++)
+    for (int x = 0; x < width; x++)
+    for (int y = 0; y < height; y++)
     {
-        Array.Clear(count,0,levels);
-        Array.Clear(sumR,0,levels);
-        Array.Clear(sumG,0,levels);
-        Array.Clear(sumB,0,levels);
-
-        for (int i=Math.Max(0, x-brushSize); i<=Math.Min(w-1, x+brushSize); i++)
-        for (int j=Math.Max(0, y-brushSize); j<=Math.Min(h-1, y+brushSize); j++)
+        for (int nx = Math.Max(0, x - brushSize); nx <= Math.Min(width - 1, x + brushSize); nx++)
         {
-            Color p = src.GetPixel(i,j);
-            int idx = (int)(((p.R+p.G+p.B)/3.0)*levels/255.0);
-            idx = Math.Min(idx, levels-1);
-            count[idx]++; sumR[idx]+=p.R; sumG[idx]+=p.G; sumB[idx]+=p.B;
+            for (int ny = Math.Max(0, y - brushSize); ny <= Math.Min(height - 1, y + brushSize); ny++)
+            {
+                Color p = source.GetPixel(nx, ny);
+                int intensity = (int)(((p.R + p.G + p.B) / 3.0) * intensityLevels / 255.0);
+                if (intensity >= intensityLevels) intensity = intensityLevels - 1;
+
+                count[intensity]++;
+                sumR[intensity] += p.R;
+                sumG[intensity] += p.G;
+                sumB[intensity] += p.B;
+            }
         }
 
-        int best=0;
-        for (int i=1; i<levels; i++)
-            if (count[i]>count[best]) best=i;
+        int maxCount = 0, bestIdx = 0;
+        for (int i = 0; i < intensityLevels; i++)
+        {
+            if (count[i] > maxCount)
+            {
+                maxCount = count[i];
+                bestIdx = i;
+            }
+        }
 
-        int a = src.GetPixel(x,y).A;
-        int r = sumR[best]/count[best],
-            g = sumG[best]/count[best],
-            b = sumB[best]/count[best];
-        outBmp.SetPixel(x, y, Color.FromArgb(a, r, g, b));
+        Color original = source.GetPixel(x, y);
+        int r = sumR[bestIdx] / maxCount;
+        int g = sumG[bestIdx] / maxCount;
+        int b = sumB[bestIdx] / maxCount;
+        result.SetPixel(x, y, Color.FromArgb(original.A, r, g, b));
     }
-    return outBmp;
+
+    return result;
 }
 ```
 

@@ -12,8 +12,8 @@ For full project source codes visit [Pixel-It](https://github.com/3bbaas/Pixel-I
 
 ## Table of Contents
 
-1. [Features](#features)
-2. [Demo](#demo)
+1. [Demo](#demo)
+2. [Features](#features)
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Configuration](#configuration)
@@ -22,6 +22,13 @@ For full project source codes visit [Pixel-It](https://github.com/3bbaas/Pixel-I
 8. [License](#license)
 
 
+## Demo
+<br>
+
+<figure markdown="span">
+  ![Main Window](./assets/Pixelit_Preview.gif){ width="600" }
+  <figcaption>Main Window App</figcaption>
+</figure>
 
 ## Features
 - Core Filters: Brightness, Contrast, Gaussian Blur, Uniform Blur, Sobel Edge Detect, Invert (Negative), Grayscale 
@@ -33,15 +40,6 @@ For full project source codes visit [Pixel-It](https://github.com/3bbaas/Pixel-I
 - UI Controls: Fit-to-PictureBox, Zoom In/Out, Undo/Redo, Crop 
 
 - File I/O: Save As (JPEG/PNG/BMP/GIF/TIFF), Batch-save in multiple formats, Compression quality slider 
-
-## Demo
-<br>
-
-<figure markdown="span">
-  ![Main Window](./assets/main_window.png?v=4/200x200/){ width="500" loading=lazy }
-  <figcaption>Main Window App</figcaption>
-</figure>
-
 
 ## Installation
 

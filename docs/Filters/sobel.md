@@ -13,43 +13,48 @@ Detects edges by convolving a grayscale version of the image with horizontal and
 
 ## Usage in Code
 
-```csharp title="Sobel.cs"
+```csharp title="Sobel.cs" linenums="1" hl_lines="16-18 25-38"
 private int Clamp(int v) => Math.Max(0, Math.Min(255, v));
 
 int[,] gx = { { -1,0,1 }, { -2,0,2 }, { -1,0,1 } };
 int[,] gy = { {  1,2,1 }, {  0,0,0 }, { -1,-2,-1 } };
 
-private Bitmap ApplySobelFilter(Bitmap src)
+private Bitmap ApplySobelFilter(Bitmap sourceImage)
 {
-    int w=src.Width, h=src.Height;
-    Bitmap gray = new Bitmap(w,h), edges = new Bitmap(w,h);
+    int width = sourceImage.Width;
+    int height = sourceImage.Height;
+    Bitmap grayImage = new Bitmap(width, height);
+    Bitmap edgeImage = new Bitmap(width, height);
 
-    // 1) convert to gray
-    for (int i=0; i<w; i++)
-    for (int j=0; j<h; j++)
+    for (int x = 0; x < width; x++)
+    for (int y = 0; y < height; y++)
     {
-        Color p=src.GetPixel(i,j);
-        int l=(p.R+p.G+p.B)/3;
-        gray.SetPixel(i,j, Color.FromArgb(p.A, l,l,l));
+        Color px = sourceImage.GetPixel(x, y);
+        int l = (px.R + px.G + px.B) / 3;
+        grayImage.SetPixel(x, y, Color.FromArgb(px.A, l, l, l));
     }
 
-    // 2) apply Sobel
-    for (int x=1; x<w-1; x++)
-    for (int y=1; y<h-1; y++)
+
+    for (int x = 1; x < width - 1; x++)
+    for (int y = 1; y < height - 1; y++)
     {
-        int sx=0, sy=0;
-        for (int i=-1; i<=1; i++)
-        for (int j=-1; j<=1; j++)
+        int sumX = 0, sumY = 0;
+
+        for (int ky = -1; ky <= 1; ky++)
+        for (int kx = -1; kx <= 1; kx++)
         {
-            int val = gray.GetPixel(x+i, y+j).R;
-            sx += gx[j+1,i+1]*val;
-            sy += gy[j+1,i+1]*val;
+            int pixel = grayImage.GetPixel(x + kx, y + ky).R;
+            sumX += gx[ky + 1, kx + 1] * pixel;
+            sumY += gy[ky + 1, kx + 1] * pixel;
         }
-        int mag = Clamp((int)Math.Sqrt(sx*sx + sy*sy));
-        edges.SetPixel(x,y, Color.FromArgb(255, mag, mag, mag));
+
+        int g = (int)Math.Sqrt(sumX * sumX + sumY * sumY);
+        g = Clamp(g);
+
+        edgeImage.SetPixel(x, y, Color.FromArgb(255, g, g, g));
     }
 
-    return edges;
+    return edgeImage;
 }
 ```
 

@@ -71,7 +71,6 @@ nav:
           - Image Equalization: View/equalized_image.md
   - About: About.md
 
-
 plugins:
   - tags
   - git-authors

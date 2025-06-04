@@ -481,7 +481,10 @@ namespace Pixel_It
                 }
             }
         }
-
+                private float _zoomFactor = 1.0f; // current zoom level (1.0 = 100%)
+        private const float ZoomStep = 0.1f; // 10% per click  
+        private const float MinZoom = 0.1f; // 10%  
+        private const float MaxZoom = 5.0f; // 500%  
         private void resizeToolStripButton4_Click(object sender, EventArgs e)
         {
             int frameW = filterPreview1.Width;
@@ -504,16 +507,14 @@ namespace Pixel_It
                 newW = (int)(frameH * ratioSrc);
             }
 
+            this._zoomFactor = Math.Min((float)newW / imgW, (float)newH / imgH);
             Bitmap resized = new Bitmap(bitmap, new Size(newW, newH));
             filterPreview1.Image = resized;
 
         }
 
 
-        private float _zoomFactor = 1.0f; // current zoom level (1.0 = 100%)
-        private const float ZoomStep = 0.1f; // 10% per click  
-        private const float MinZoom = 0.1f; // 10%  
-        private const float MaxZoom = 5.0f; // 500%  
+
         Bitmap _originalImage = null;
         private void UpdatePictureBox()
         {

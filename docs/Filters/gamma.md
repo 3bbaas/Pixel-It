@@ -16,26 +16,34 @@ Adjusts each color channel non-linearly via a power-law (`output = 255 × (input
 ```csharp title="Gamma.cs" linenums="1" hl_lines="13-15"
 private int Clamp(int v) => Math.Max(0, Math.Min(255, v));
 
-private Bitmap ApplyGammaFilter(Bitmap src, double gamma)
+private Bitmap ApplyGammaFilter(Bitmap sourceImage, double gamma)
 {
-    int w = src.Width, h = src.Height;
-    Bitmap outBmp = new Bitmap(w, h);
+    int width = sourceImage.Width;
+    int height = sourceImage.Height;
+    Bitmap newImage = new Bitmap(width, height);
 
-    for (int x = 0; x < w; x++)
-    for (int y = 0; y < h; y++)
+    for (int x = 0; x < width; x++)
     {
-        Color p = src.GetPixel(x, y);
-        double inv = 1.0 / gamma;
+        for (int y = 0; y < height; y++)
+        {
+            Color px = sourceImage.GetPixel(x, y);
+            double r = Math.Pow(px.R / 255.0, 1.0 / gamma) * 255.0;
+            double g = Math.Pow(px.G / 255.0, 1.0 / gamma) * 255.0;
+            double b = Math.Pow(px.B / 255.0, 1.0 / gamma) * 255.0;
 
-        int r = Clamp((int)(Math.Pow(p.R/255.0, inv) * 255));
-        int g = Clamp((int)(Math.Pow(p.G/255.0, inv) * 255));
-        int b = Clamp((int)(Math.Pow(p.B/255.0, inv) * 255));
-
-        outBmp.SetPixel(x, y, Color.FromArgb(p.A, r, g, b));
+            Color newColor = Color.FromArgb(
+                px.A,
+                Clamp((int)r),
+                Clamp((int)g),
+                Clamp((int)b)
+            );
+            newImage.SetPixel(x, y, newColor);
+        }
     }
 
-    return outBmp;
+    return newImage;
 }
+
 ```
 
 !!! info "XXXXXXXXXXXXXXXXXXXX"
