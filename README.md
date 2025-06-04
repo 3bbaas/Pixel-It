@@ -1,4 +1,4 @@
-![](https://img.shields.io/github/license/3bbaas/Pixel-It)
+![GitHub License](https://img.shields.io/github/license/3bbaas/Pixel-It?color=blue)
 ![Stars](https://img.shields.io/github/stars/3bbaas/Pixel-It)
 
 ![pixelit](https://github.com/user-attachments/assets/caba0b14-2b9c-4db0-8d81-43d2d3a5cc4a)
