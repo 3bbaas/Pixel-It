@@ -19,6 +19,6 @@ The **Brightness** filter simply adds (or subtracts) a constant value to each pi
 
 ```
 
-!!! info "Brightness"
+<!-- !!! info "Brightness"
 
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->

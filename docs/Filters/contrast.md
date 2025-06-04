@@ -13,7 +13,7 @@ The **Contrast** filter increases the difference between dark and light areas by
 
 ## Usage in Code
 
-```csharp title="Contrast.cs" linenums="1" hl_lines="13-15"
+```csharp title="Contrast.cs" linenums="1" hl_lines="14-20"
 private int Clamp(int value)
 {
     return Math.Max(0, Math.Min(255, value));
@@ -40,7 +40,7 @@ private Bitmap ApplyContrastFilter(Bitmap sourceImage, int contrast)
 }
 ```
 
-!!! info "Contrast"
+<!-- !!! info "Contrast"
 
-    XXXXXXXXXXXXXXXXXXXXXXXXXXX
+    XXXXXXXXXXXXXXXXXXXXXXXXXXX -->
 
