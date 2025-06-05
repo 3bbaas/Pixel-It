@@ -25,7 +25,7 @@ For full project source codes visit [Pixel-It](https://github.com/3bbaas/Pixel-I
 ## Demo
 <br>
 
-<video width="400" height="400" autoplay muted loop>
+<video width="700" height="700" autoplay muted loop>
   <source src="./assets/Pixelit_Preview.mp4" type="video/mp4">
 </video>
 
