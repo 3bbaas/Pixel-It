@@ -25,9 +25,9 @@ For full project source codes visit [Pixel-It](https://github.com/3bbaas/Pixel-I
 ## Demo
 <br>
 
-<video width="700" height="700" autoplay muted loop>
-  <source src="./assets/Pixelit_Preview.mp4" type="video/mp4">
-</video>
+  <video width="400" height="400" autoplay muted loop>
+    <source src="./assets/Pixelit_Preview.mp4" type="video/mp4">
+  </video>
 
 ## Features
 - Core Filters: Brightness, Contrast, Gaussian Blur, Uniform Blur, Sobel Edge Detect, Invert (Negative), Grayscale 
