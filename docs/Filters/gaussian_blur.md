@@ -13,7 +13,7 @@ Smooths the image by convolving with a 3×3 Gaussian kernel (`[1 2 1; 2 4 2; 1 2
 
 ## Usage in Code
 
-```csharp title="GaussianBlur.cs"
+```csharp title="GaussianBlur.cs" linenums="1" hl_lines="16-30"
 private int Clamp(int v) => Math.Max(0, Math.Min(255, v));
 
 private Bitmap ApplyGaussianBlur(Bitmap src)

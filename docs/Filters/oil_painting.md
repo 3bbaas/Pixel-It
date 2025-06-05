@@ -13,7 +13,7 @@ Simulates a painterly look by grouping neighborhood pixels by intensity, then re
 
 ## Usage in Code
 
-```csharp title="OilPainting.cs"
+```csharp title="OilPainting.cs"  linenums="1" hl_lines="8-20"
 private Bitmap ApplyOilPaintingBrushSize(Bitmap source, int brushSize)
 {
     const int intensityLevels = 30;

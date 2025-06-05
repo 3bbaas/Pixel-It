@@ -13,7 +13,7 @@ Adjusts each color channel non-linearly via a power-law (`output = 255 × (input
 
 ## Usage in Code
 
-```csharp title="Gamma.cs" linenums="1" hl_lines="13-15"
+```csharp title="Gamma.cs" linenums="1" hl_lines="13-24"
 private int Clamp(int v) => Math.Max(0, Math.Min(255, v));
 
 private Bitmap ApplyGammaFilter(Bitmap sourceImage, double gamma)
