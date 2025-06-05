@@ -5,7 +5,7 @@ mkdocs-material
 pygments
 pymdown-extensions
 markdown-meta-extension
-
+mkdocs-video
 babel
 colorama
 paginate
