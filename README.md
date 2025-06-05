@@ -1,5 +1,7 @@
 ![GitHub License](https://img.shields.io/github/license/3bbaas/Pixel-It?style=plastic&color=blue)
 ![Stars](https://img.shields.io/github/stars/3bbaas/Pixel-It?style=plastic&color=yellow)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/3bbaas/Pixel-It?style=plastic&color=brown)
+![GitHub last commit](https://img.shields.io/github/last-commit/3bbaas/Pixel-It?style=plastic&color=cyan)
 
 ![pixelit](https://github.com/user-attachments/assets/caba0b14-2b9c-4db0-8d81-43d2d3a5cc4a)
 
