@@ -58,5 +58,5 @@ private Bitmap ApplySobelFilter(Bitmap sourceImage)
 }
 ```
 
-<!-- !!! info "XXXXXXXXXXXXXXXXXXXX"
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+!!! info "Sobel Filter"
+The Sobel filter is an edge detection technique used in image processing and computer vision. It works by calculating the gradient of the image intensity at each pixel, highlighting regions of high spatial frequency that correspond to edges. The filter uses convolution with two 3x3 kernels to detect horizontal and vertical changes in intensity. [`Wiki`](https://en.wikipedia.org/wiki/Sobel_operator)
