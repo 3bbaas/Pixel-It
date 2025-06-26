@@ -46,5 +46,6 @@ private Bitmap ApplyGammaFilter(Bitmap sourceImage, double gamma)
 
 ```
 
-<!-- !!! info "XXXXXXXXXXXXXXXXXXXX"
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+!!! info "Gamma (photography)"
+
+    In photography, gamma refers to the relationship between the input and output brightness levels of an image, often used to adjust the tonal range and contrast. A gamma correction modifies the brightness and contrast to compensate for the non-linear perception of light by human vision or display devices. [`Wiki`](https://en.wikipedia.org/wiki/Gamma_correction)
