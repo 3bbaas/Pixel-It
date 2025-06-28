@@ -33,5 +33,5 @@ jobs:
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.TOKEN }}

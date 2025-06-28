@@ -86,7 +86,7 @@ plugins:
   - git-committers:
       repository: '3bbaas/pixel-it'
       branch: main
-      token: !ENV [GITHUB_TOKEN]
+      token: !ENV [TOKEN]
 
   - mkdocs-video:
       css_style:
