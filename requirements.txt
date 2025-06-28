@@ -13,4 +13,8 @@ regex
 mkdocs-git-authors-plugin
 mkdocs-git-revision-date-localized-plugin
 mkdocs-minify-plugin
-pymdown-extensions
+mkdocs-git-committers-plugin-2
+mkdocs-include-dir-to-nav
+mkdocs-redirects
+mkdocs-awesome-pages-plugin
+mkdocs-nav-weight
