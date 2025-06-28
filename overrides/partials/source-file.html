@@ -1,0 +1,5 @@
+{% if page.meta.git_revision_date_localized or page.meta.git_creation_date_localized %}
+<div class="md-source-date">
+  {% include "partials/source-date.html" %}
+</div>
+{% endif %}

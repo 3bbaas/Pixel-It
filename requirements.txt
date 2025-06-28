@@ -8,7 +8,7 @@ mkdocs-minify-plugin
 mkdocs-include-dir-to-nav
 mkdocs-git-authors-plugin
 mkdocs-awesome-pages-plugin
-mkdocs-git-committers-plugin-2
+mkdocs-git-committers-plugin
 mkdocs-git-revision-date-localized-plugin
 markdown
 pygments

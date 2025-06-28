@@ -12,3 +12,26 @@
 .md-typeset h1, .md-typeset h2, .md-typeset h3 {
   font-weight: 700;
 }
+
+/* Add to stylesheets/extra.css */
+.contributors {
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+.contributors .avatars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+.contributors .avatars img {
+  border-radius: 50%;
+  border: 2px solid var(--md-primary-fg-color);
+}
+
+.md-source-date {
+  margin-top: 0.5em;
+  font-size: .68rem;
+}

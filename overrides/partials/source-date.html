@@ -1,0 +1,8 @@
+<small>
+  {% if page.meta.git_creation_date_localized %}
+    Created: {{ page.meta.git_creation_date_localized }}
+  {% endif %}
+  {% if page.meta.git_revision_date_localized %}
+    <br>Updated: {{ page.meta.git_revision_date_localized }}
+  {% endif %}
+</small>

@@ -1,0 +1,13 @@
+{% if page.meta.contributors %}
+<div class="contributors">
+  <hr>
+  <strong>Contributors:</strong>
+  <div class="avatars">
+    {% for contributor in page.meta.contributors %}
+    <a href="{{ contributor.url }}" title="{{ contributor.name }}">
+      <img src="{{ contributor.avatar }}" alt="{{ contributor.name }}" width="32" height="32">
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

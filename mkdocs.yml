@@ -5,6 +5,7 @@ repo_url: 'https://github.com/3bbaas/Pixel-It'
 
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/logo.png
   favicon: assets/favicon.ico
   icon:
@@ -85,6 +86,7 @@ plugins:
   - git-committers:
       repository: '3bbaas/pixel-it'
       branch: main
+      token: !ENV [GITHUB_TOKEN]
 
   - mkdocs-video:
       css_style:
