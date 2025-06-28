@@ -1,6 +1,6 @@
 site_name: Pixel-It Documentation
 site_url: https://3bbaas.github.io/Pixel-It/
-repo_name: 'Pixel-It'
+repo_name: '3bbaas/pixel-it'
 repo_url: 'https://github.com/3bbaas/Pixel-It'
 
 theme:
@@ -78,7 +78,7 @@ plugins:
   - tags
   - git-authors
   - git-committers:
-      repository: 3bbaas/Pixel-It
+      repository: '3bbaas/pixel-it'
       branch: main
   - mkdocs-video:
       css_style:
