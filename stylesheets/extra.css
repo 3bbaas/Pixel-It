@@ -1,0 +1,37 @@
+:root {
+  --md-primary-fg-color: #26bb9e; 
+  --md-primary-fg-color--light: #06362d; 
+  --md-primary-fg-color--dark: #b9992f; 
+
+  --md-accent-fg-color: #FF5722; 
+  --md-accent-fg-color--transparent: rgba(255, 87, 34, 0.1); 
+  --md-accent-bg-color: #FFFFFF; 
+  --md-accent-bg-color--light: #FFFFFFB3; 
+}
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+  font-weight: 700;
+}
+
+/* Add to stylesheets/extra.css */
+.contributors {
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+.contributors .avatars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+.contributors .avatars img {
+  border-radius: 50%;
+  border: 2px solid var(--md-primary-fg-color);
+}
+
+.md-source-date {
+  margin-top: 0.5em;
+  font-size: .68rem;
+}
